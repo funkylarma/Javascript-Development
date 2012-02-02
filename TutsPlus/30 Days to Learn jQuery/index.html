@@ -1,14 +1,22 @@
 <html>
 	<head>
 		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 		<style>
-			ul li {
-				color: red;
-			}
 			.emphasis {
-				color: green;
+				font-weight: bold;
 			}
 		</style>
+		<script>
+			
+			$(function() {
+				$('li:first-child').addClass('emphasis');
+			});
+			
+			// $(document).ready(function() {
+				// $('li:first-child').addClass('emphasis');
+			// });
+		</script>
 	</head>
 	<body>
 		
@@ -18,11 +26,6 @@
 			<li>Hello 3</li>
 		</ul>
 		
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-		<script>
-			$('ul li').addClass('emphasis');
-		</script>
 	</body>
 	
 </html>
