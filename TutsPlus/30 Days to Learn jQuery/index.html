@@ -1,49 +1,33 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
-		<style>
-			li {
-				color: black;
-			}
-			
-			.container {
-				color: green;
-			}
-		</style>
+		<title>jQuery Events</title>
+		<link rel="stylesheet" href="day.css">
 	</head>
 	<body>
 		
-		<div class="container">
+		<h1>My Website</h1>
+		
+		<button data-file="day">Day</button>
+		<button data-file="night">Night</button>
 			
-			<h1>Welcome to my Website</h1>
-			<p>
-				Brisket short loin ball tip rump, swine meatloaf chuck venison sirloin prosciutto jowl t-bone kielbasa. Venison fatback brisket, pork tri-tip leberkase turducken swine frankfurter ribeye sirloin shoulder biltong pork loin. Bresaola pork belly kielbasa cow ham. Capicola pork loin chicken salami swine ball tip pastrami, strip steak brisket ribeye turducken.
-			</p>
-			
-			<div class="container">
-				<ul class="emphasis">
-					<li>item</li>
-					<li>item 2</li>
-					<li>item 3</li>
-					<li>item 4</li>
-					<li>item 5</li>
-					<li>item 6</li>
-					<li>
-						<ul>
-							<li>hello from the next</li>
-						</ul>
-					</li>
-					<li>item 3</li>
-				</ul>
-			</div>
-			
-		</div><!-- .container -->
-				
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 		<script>
-			//$('ul.emphasis').children('li').last().text('added with jQuery');
-			console.log($('ul').parents('div.container'));
-			console.log($('ul').closest('div.container'));
+			(function() {
+				var link = $('link');
+				$('button').on('click', function() {
+					var $this = $(this), stylesheet = $this.data('file');
+					
+					// Update the stylesheet
+					link.attr('href', stylesheet + '.css');
+					
+					$this
+						.siblings('button')
+							.removeAttr('disabled')
+							.end()
+						.attr('disabled', 'disabled');
+				});
+			})();
 		</script>
 		
 	</body>
