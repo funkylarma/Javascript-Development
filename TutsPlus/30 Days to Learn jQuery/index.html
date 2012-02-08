@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jQuery Events</title>
-		<link rel="stylesheet" href="day.css">
+		<title>jQuery Events 201</title>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		
 		<h1>My Website</h1>
 		
-		<button data-file="day">Day</button>
-		<button data-file="night">Night</button>
+		<dl>
+			<dt>What are you hours?</dt>
+			<dd>We are open 24/7</dd>
+			<dt>What are you hours?</dt>
+			<dd>We are open 24/7</dd>
+			<dt>What are you hours?</dt>
+			<dd>We are open 24/7</dd>
+			<dt>What are you hours?</dt>
+			<dd>We are open 24/7</dd>
+			<dt>What are you hours?</dt>
+			<dd>We are open 24/7</dd>
+		</dl>
 			
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 		<script>
 			(function() {
-				var link = $('link');
-				$('button').on('click', function() {
-					var $this = $(this), stylesheet = $this.data('file');
-					
-					// Update the stylesheet
-					link.attr('href', stylesheet + '.css');
-					
-					$this
-						.siblings('button')
-							.removeAttr('disabled')
-							.end()
-						.attr('disabled', 'disabled');
+				$('dd').filter(':nth-child(n+4)').addClass('hide');
+				
+				$('dl').on('mouseenter', 'dt', function() {
+					$(this)
+						.next()
+							.slideDown(200)
+							.siblings('dd')
+								.slideUp(200);
 				});
 			})();
 		</script>
