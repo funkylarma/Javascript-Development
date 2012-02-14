@@ -2,24 +2,45 @@
 <html>
 	<head>
 		<meta charset=UTF-8>
-		<title>Bind... Live... Delegate... On... Dang that's confusing</title>
+		<title>Appending Content</title>
+		<style>
+			article {
+				width: 600px;
+				margin: auto;
+			}
+			
+			blockquote.co {
+				float: right;
+				background: #e3e3e3;
+				font-size: 2em;
+				width: 35%;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 		
-		<h1>My Website</h1>
-		
-		<div class="container">
-			<h2>Click Me</h2>
-		</div>
+		<article>
+			<h1>My Awesome Post</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				<span class="co">Lorem ipsum dolor sit amet</span> consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</article>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 		<script>
-			(function() {
-				$('div.container').delegate('h2', 'click', function() {
-					console.log('clicked');
-					var cloned = $(this).clone().appendTo('.container');
-					//console.log(cloned);
-				});
+			(function(){
+				var co = $('span.co').each(function() {
+					var $this = $(this);
+					$('<blockquote></blockquote>', {
+						class: 'co',
+						text: $this.text()
+					}).prependTo($this.closest('p'));
+				})
+
 			})();
 		</script>
 		
