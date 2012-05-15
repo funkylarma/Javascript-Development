@@ -3,3 +3,4 @@ This is a collection of exercises and sample code from various Javascript relate
 
 ###Sites
 * [Tuts+ - 30 Days to Learn jQuery](http://tutsplus.com/course/30-days-to-learn-jquery/)
+* [Team Tree House - JavaScript Foundations](http://teamtreehouse.com/library/javascript-foundations)
